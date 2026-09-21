@@ -1,0 +1,8 @@
+{
+  "name": "Jeu Secret",
+  "short_name": "Jeu Secret",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#111111",
+  "theme_color": "#111111"
+}
