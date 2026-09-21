@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Secret</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        #lock-screen {
+            display: block;
+            padding: 20px;
+        }
+        #game {
+            display: none;
+            padding: 20px;
+        }
+        input {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            border: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:active {
+            background: #45a049;
+        }
+        #error {
+            color: #ff5555;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .indice {
+            font-size: 16px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="lock-screen">
+        <h1>🔒 Écran verrouillé</h1>
+        <p>Entre le mot secret pour continuer</p>
+        <p class="indice">Indice : avec quoi tu écris ?</p>
+        <input type="text" id="password" placeholder="Mot secret...">
+        <br>
+        <button onclick="checkPassword()">Valider</button>
+        <div id="error"></div>
+    </div>
+
+    <div id="game">
+        <h1>✅ Débloqué !</h1>
+        <p>Bienvenue dans le jeu (Pacman à ajouter ici plus tard).</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password').value.trim().toLowerCase();
+            const errorDiv = document.getElementById('error');
+            
+            if (input === 'stylo') {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('game').style.display = 'block';
+                errorDiv.textContent = '';
+            } else {
+                errorDiv.textContent = '❌ Mot incorrect, réessaie';
+            }
+        }
+    </script>
+</body>
+</html>
